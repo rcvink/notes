@@ -9,4 +9,16 @@
     }
 
     testEmptyNotesArray()
+
+    function testAddNote () {
+      var notesList = new NotesList()
+      notesList.add("Hello!");
+
+      if(notesList.notes()[0].text() !== "Hello!") {
+        throw Error("Note was not stored in the array!")
+      };
+      console.log("Note was added");
+    };
+
+    testAddNote()
 })(this)
