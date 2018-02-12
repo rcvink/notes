@@ -1,10 +1,10 @@
 (function(exports) {
   function testReturnEmptyNoteList () {
     var notesList = new NotesList();
-    var notesListView = new NotesListView(notesList);
+    var notesListView = new NoteListView(notesList);
 
-    if(notesListView.list() !== undefined) {
-      throw Error("Did not return undefined for empty list");
+    if(notesListView.list() !== "<ul></ul>") {
+      throw Error("Did not return empty list");
     };
     console.log("0 notes were listed");
   };
@@ -14,7 +14,7 @@
   function testReturnSingletonNoteList () {
     var notesList = new NotesList();
     notesList.add("Hi there!");
-    var notesListView = new NotesListView(notesList);
+    var notesListView = new NoteListView(notesList);
 
     if(notesListView.list() !== "<ul><li><div>Hi there!</div></li></ul>") {
       throw Error("Did not return list of 1 note");
@@ -28,7 +28,7 @@
     var notesList = new NotesList();
     notesList.add("Hi there!");
     notesList.add("Greetings!");
-    var notesListView = new NotesListView(notesList);
+    var notesListView = new NoteListView(notesList);
 
     if(notesListView.list() !== "<ul><li><div>Hi there!</div></li><li><div>Greetings!</div></li></ul>") {
       throw Error("Did not return list of 2 notes");
