@@ -1,2 +1,2 @@
-// noteController = new NoteController();
-// noteController.insertHTML();
+noteController = new NoteController();
+noteController.insertHTML();
