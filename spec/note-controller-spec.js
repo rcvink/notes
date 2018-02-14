@@ -1,7 +1,11 @@
 'use strict';
 
 (function(exports) {
-  var noteController = new NoteController();
+  var noteList = new NoteList();
+  noteList.add("Favourite drink: seltzer");
+  var noteListView = new NoteListView(noteList);
+  var HTMLelement = {innerHTML:""};
+  var noteController = new NoteController(noteList, noteListView, HTMLelement);
 
   (function testInstantiateNoteController () {
     assert.isA(
@@ -12,10 +16,9 @@
   })();
 
   (function testInsertHtml() {
-    noteController = new NoteController({innerHTML:""});
     noteController.insertHTML();
     assert.isTrue(
-      noteController.element().innerHTML === "<ul><li><div>Favourite drink: seltzer</div></li></ul>",
+      noteController.HTMLelement().innerHTML === "<ul><li><div>Favourite drink: seltzer</div></li></ul>",
       "insertHTML() adds note list view"
     );
   })();

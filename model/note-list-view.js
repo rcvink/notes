@@ -1,11 +1,11 @@
 (function(exports) {
-  function NoteListView(notesList) {
-    this._notesList = notesList
+  function NoteListView(noteList) {
+    this._noteList = noteList
   };
 
   NoteListView.prototype.list = function() {
     string = "<ul>"
-    this._notesList.notes().forEach(function(note) {
+    this._noteList.notes().forEach(function(note) {
       string += `<li><div>${note.text()}</div></li>`
     });
     string += "</ul>"
