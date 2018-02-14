@@ -1,10 +1,15 @@
 'use strict';
 
 (function(exports) {
+
   var noteListView = {
     list: function() { return "<ul><li><div>Favourite drink: seltzer</div></li></ul>"}
   };
-  var HTMLelement = {innerHTML:""};
+
+  var HTMLelement = {
+    innerHTML:""
+  };
+  
   var noteController = new NoteController(noteListView, HTMLelement);
 
   (function testInstantiateNoteController () {
