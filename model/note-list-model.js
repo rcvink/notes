@@ -10,8 +10,12 @@
   };
 
   NoteList.prototype.add = function (string) {
-    note = new this._noteConstructor(this._notes.length, string);
+    note = new this._noteConstructor(this._nextNoteId(), string);
     this._notes.push(note);
+  };
+
+  NoteList.prototype._nextNoteId = function () {
+    return this._notes.length
   };
 
   exports.NoteList = NoteList;
