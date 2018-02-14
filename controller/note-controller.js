@@ -9,7 +9,7 @@
   };
 
   NoteController.prototype.insertHTML = function () {
-    this._HTMLelement.innerHTML = this._noteListView.list();
+    this._HTMLelement.innerHTML = this._noteListView.parse();
   };
 
   exports.NoteController = NoteController;

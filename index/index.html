@@ -19,7 +19,13 @@
     <script src="../controller/note-controller.js"></script>
 
     <!-- pages -->
-    <script src="index.js"></script>
+    <script>
+    var noteList = new NoteList();
+    noteList.add("Favourite drink: seltzer");
+    var noteListView = new NoteListView(noteList);
+    var noteController = new NoteController(noteListView);
+    noteController.insertHTML();
+    </script>
 
   </body>
 </html>

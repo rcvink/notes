@@ -3,7 +3,7 @@
     this._noteList = noteList
   };
 
-  NoteListView.prototype.list = function() {
+  NoteListView.prototype.parse = function() {
     string = "<ul>"
     this._noteList.notes().forEach(function(note) {
       string += `<li><div>${note.text()}</div></li>`

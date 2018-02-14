@@ -18,7 +18,7 @@
     noteListView = new NoteListView(noteList);
 
     assert.isTrue(
-      noteListView.list() === "<ul></ul>",
+      noteListView.parse() === "<ul></ul>",
       "0 notes listed in HTML"
     );
   })();
@@ -31,7 +31,7 @@
     noteListView = new NoteListView(noteList);
 
     assert.isTrue(
-      noteListView.list() === "<ul><li><div>Hi there!</div></li></ul>",
+      noteListView.parse() === "<ul><li><div>Hi there!</div></li></ul>",
       "1 note listed in HTML"
     );
   })();
@@ -44,7 +44,7 @@
     noteListView = new NoteListView(noteList);
 
     assert.isTrue(
-      noteListView.list() === "<ul><li><div>Hi there!</div></li><li><div>Greetings!</div></li></ul>",
+      noteListView.parse() === "<ul><li><div>Hi there!</div></li><li><div>Greetings!</div></li></ul>",
       "2 notes listed in HTML"
     );
   })();
