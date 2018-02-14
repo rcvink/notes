@@ -2,6 +2,8 @@
 
 (function(exports) {
 
+  console.log("NoteController");
+
   var noteListView = {
     parse: function() { return "<ul><li><div>Favourite drink: seltzer</div></li></ul>"}
   };
@@ -16,7 +18,7 @@
     assert.isA(
       noteController,
       NoteController,
-      "NoteController can be instantiated"
+      "can be instantiated"
     );
   })();
 

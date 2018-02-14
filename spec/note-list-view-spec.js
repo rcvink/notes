@@ -1,4 +1,7 @@
 (function(exports) {
+
+  console.log("NoteListView");
+
   var note1 = {
     text: function() { return "Hi there!" }
   };
@@ -19,7 +22,7 @@
 
     assert.isTrue(
       noteListView.parse() === "<ul></ul>",
-      "0 notes listed in HTML"
+      "list containing 0 notes is parsed into HTML"
     );
   })();
 
@@ -32,7 +35,7 @@
 
     assert.isTrue(
       noteListView.parse() === "<ul><li><div>Hi there!</div></li></ul>",
-      "1 note listed in HTML"
+      "list containing 1 note is parsed into HTML"
     );
   })();
 
@@ -45,7 +48,7 @@
 
     assert.isTrue(
       noteListView.parse() === "<ul><li><div>Hi there!</div></li><li><div>Greetings!</div></li></ul>",
-      "2 notes listed in HTML"
+      "list containing 2 notes is parsed into HTML"
     );
   })();
 
