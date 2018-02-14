@@ -1,14 +1,17 @@
 (function(exports) {
-  function NoteList() {
+
+  function NoteList(noteConstructor = Note) {
     this._notes = [];
-  }
+    this._noteConstructor = noteConstructor;
+  };
 
   NoteList.prototype.notes = function () {
     return this._notes;
   };
 
   NoteList.prototype.add = function (string) {
-    this._notes.push(new Note(string));
+    note = new this._noteConstructor(this._notes.length, string);
+    this._notes.push(note);
   };
 
   exports.NoteList = NoteList;
