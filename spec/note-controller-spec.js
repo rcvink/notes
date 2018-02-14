@@ -1,11 +1,11 @@
 'use strict';
 
 (function(exports) {
-  var noteList = new NoteList();
-  noteList.add("Favourite drink: seltzer");
-  var noteListView = new NoteListView(noteList);
+  var noteListView = {
+    list: function() { return "<ul><li><div>Favourite drink: seltzer</div></li></ul>"}
+  };
   var HTMLelement = {innerHTML:""};
-  var noteController = new NoteController(noteList, noteListView, HTMLelement);
+  var noteController = new NoteController(noteListView, HTMLelement);
 
   (function testInstantiateNoteController () {
     assert.isA(

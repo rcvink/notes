@@ -8,12 +8,20 @@
       );
     })();
 
-    (function testAddNote () {
+    (function testAddNoteText () {
       noteList.add("Hello!");
 
       assert.isTrue(
         noteList.notes()[0].text() === "Hello!",
-        "Note is stored"
+        "Note text is stored"
+      );
+    })();
+
+    (function testAddNoteObject () {
+      assert.isA(
+        noteList.notes()[0],
+        Note,
+        "Note object is stored"
       );
     })();
 

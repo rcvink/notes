@@ -1,8 +1,21 @@
 (function(exports) {
-  var noteList = new NoteList();
+  var note1 = {
+    text: function() { return "Hi there!" }
+  };
+
+  var note2 = {
+    text: function() { return "Greetings!" }
+  };
+
+  var noteList;
+  var noteListView;
 
   (function testReturnEmptyNoteList () {
-    var noteListView = new NoteListView(noteList);
+    noteList = {
+      notes: function() { return [] }
+    };
+
+    noteListView = new NoteListView(noteList);
 
     assert.isTrue(
       noteListView.list() === "<ul></ul>",
@@ -11,8 +24,11 @@
   })();
 
   (function testReturnSingletonNoteList () {
-    noteList.add("Hi there!");
-    var noteListView = new NoteListView(noteList);
+    noteList = {
+      notes: function() { return [note1] }
+    };
+
+    noteListView = new NoteListView(noteList);
 
     assert.isTrue(
       noteListView.list() === "<ul><li><div>Hi there!</div></li></ul>",
@@ -21,8 +37,11 @@
   })();
 
   (function testReturnManyNoteList () {
-    noteList.add("Greetings!");
-    var noteListView = new NoteListView(noteList);
+    noteList = {
+      notes: function() { return [note1, note2] }
+    };
+
+    noteListView = new NoteListView(noteList);
 
     assert.isTrue(
       noteListView.list() === "<ul><li><div>Hi there!</div></li><li><div>Greetings!</div></li></ul>",

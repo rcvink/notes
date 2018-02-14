@@ -1,6 +1,5 @@
 (function(exports) {
-  function NoteController(noteList, noteListView, HTMLelement = document.getElementById('app')) {
-    this._noteListModel = noteList;
+  function NoteController(noteListView, HTMLelement = document.getElementById('app')) {
     this._noteListView = noteListView;
     this._HTMLelement = HTMLelement;
   }
