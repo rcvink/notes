@@ -59,7 +59,7 @@
 
   })();
 
-  (function test20CharacterNoteLimit () {
+  (function test20CharacterSingletonNoteLimit () {
     noteList = {
       notes: function() { return [note3] }
     }
@@ -68,7 +68,21 @@
 
     assert.isTrue(
       noteListView.parse() === "<ul><li><div>This note is longer </div></li></ul>",
-      "only first 20 characters of note is parsed"
+      "only first 20 characters of 1 note is parsed into HTML"
+    );
+
+  })();
+
+  (function test20CharacterManyNoteLimit () {
+    noteList = {
+      notes: function() { return [note3, note3] }
+    }
+
+    noteListView = new NoteListView(noteList);
+
+    assert.isTrue(
+      noteListView.parse() === "<ul><li><div>This note is longer </div></li><li><div>This note is longer </div></li></ul>",
+      "only first 20 characters of 2 notes are parsed into HTML"
     );
 
   })();
