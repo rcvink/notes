@@ -7,7 +7,7 @@ var assert = {
   },
   isA: function(instance, type, name) {
     if (!(instance instanceof type)) {
-      throw Error(`Fail ${name}. Expected ${type} but received ${instance.constructor.name}.`);
+      throw Error(`Fail ${name}. Expected ${type.name} but received ${instance.constructor.name}.`);
     };
     console.log(`Pass: ${name}.`);
   }
