@@ -10,6 +10,10 @@
     text: function() { return "Greetings!" }
   };
 
+  var note3 = {
+    text: function() { return "This note is longer than 20 characters." }
+  };
+
   var noteList;
   var noteListView;
 
@@ -24,6 +28,7 @@
       noteListView.parse() === "<ul></ul>",
       "list containing 0 notes is parsed into HTML"
     );
+
   })();
 
   (function testReturnSingletonNoteList () {
@@ -37,6 +42,7 @@
       noteListView.parse() === "<ul><li><div>Hi there!</div></li></ul>",
       "list containing 1 note is parsed into HTML"
     );
+
   })();
 
   (function testReturnManyNoteList () {
@@ -50,6 +56,21 @@
       noteListView.parse() === "<ul><li><div>Hi there!</div></li><li><div>Greetings!</div></li></ul>",
       "list containing 2 notes is parsed into HTML"
     );
+
+  })();
+
+  (function test20CharacterNoteLimit () {
+    noteList = {
+      notes: function() { return [note3] }
+    }
+
+    noteListView = new NoteListView(noteList);
+
+    assert.isTrue(
+      noteListView.parse() === "<ul><li><div>This note is longer </div></li></ul>",
+      "only first 20 characters of note is parsed"
+    );
+
   })();
 
 })(this);
