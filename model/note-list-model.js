@@ -15,9 +15,10 @@
   };
 
   NoteList.prototype.getNote = function (id) {
-    return this._notes.find(function(note) {
+    var note = this._notes.find(function(note) {
       return note.id() === id;
     });
+    return note;
   };
 
   NoteList.prototype._nextNoteId = function () {

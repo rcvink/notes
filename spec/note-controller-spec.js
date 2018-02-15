@@ -49,21 +49,29 @@
     );
   })();
 
-  // (function testGetNoteById() {
-  //   assert.isEqual(
-  //     noteController.getNote("0"),
-  //     mockNote,
-  //     "getNote() returns note with id of 0"
-  //   );
-  // })();
-
-  (function testShowNote() {
-    noteController.showNote("0", mockNoteList)
+  (function testInsertNoteHTML() {
+    noteController.insertNoteHTML("0", mockNoteList)
 
     assert.isEqual(
       noteController.appElement().innerHTML,
       "<div>Yo</div>",
-      "showNote() returns html for note with id of 0"
+      "insertNoteHTML(0) inserts html for note with id of 0"
+    );
+  })();
+
+  (function testShowNoteForCurrentPage() {
+    var mockHTMLelement = {
+      innerHTML:""
+    };
+
+    var noteController = new NoteController(mockNoteListView, mockHTMLelement);
+
+    noteController.showNoteForCurrentPage();
+
+    assert.isEqual(
+      noteController.appElement().innerHTML,
+      "<div>Yo</div>",
+      "showNoteForCurrentPage() shows note for current page correctly"
     );
   })();
 
