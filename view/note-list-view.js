@@ -5,6 +5,10 @@
     this._noteList = noteList;
   };
 
+  NoteListView.prototype.noteList = function () {
+    return this._noteList;
+  };
+
   NoteListView.prototype.parse = function() {
     string = "<ul>";
 

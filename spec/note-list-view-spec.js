@@ -29,6 +29,20 @@
   var link2html = "<li><div><a href='http://localhost:8080#notes/0'>This note is longer </a></div></li>";
   var link3html = "<li><div><a href='http://localhost:8080#notes/1'>This note is also lo</a></div></li>";
 
+  (function testInitialiseWithNoteList () {
+    noteList = {
+      notes: function() { return [] }
+    };
+
+    noteListView = new NoteListView(noteList);
+
+    assert.isEqual(
+      noteListView.noteList(),
+      noteList,
+      "is initialised with a note list model"
+    );
+
+  })();
 
   (function testReturnEmptyNoteList () {
     noteList = {
