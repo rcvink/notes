@@ -39,4 +39,20 @@
     );
   })();
 
+  (function testGetNoteById0 () {
+    assert.isEqual(
+      noteList.getNote(0).text(),
+      "Hello!",
+      "returns note with id 0"
+    );
+  })();
+
+  (function testGetNoteById1 () {
+    assert.isEqual(
+      noteList.getNote(1).text(),
+      "Hi there!",
+      "returns note with id 1"
+    );
+  })();
+
 })(this);

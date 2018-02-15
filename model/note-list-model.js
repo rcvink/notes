@@ -14,6 +14,12 @@
     this._notes.push(note);
   };
 
+  NoteList.prototype.getNote = function (id) {
+    return this._notes.find(function(note) {
+      return note.id() === id;
+    });
+  };
+
   NoteList.prototype._nextNoteId = function () {
     return this._notes.length
   };
