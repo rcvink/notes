@@ -38,5 +38,9 @@
     this.insertNoteHTML(this.getNote(this.getNoteIdFromURL()));
   };
 
+  NoteController.prototype.makeUrlChangeShowNoteForCurrentPage = function () {
+    window.addEventListener("hashchange", this.showNoteForCurrentPage);
+  };
+
   exports.NoteController = NoteController;
 })(this);

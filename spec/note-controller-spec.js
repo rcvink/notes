@@ -67,4 +67,20 @@
     );
   })();
 
+  (function testMakeUrlChangeShowNoteForCurrentPage() {
+    var mockHTMLelement = {
+      innerHTML:""
+    };
+
+    var noteController = new NoteController(mockNoteListView, mockHTMLelement);
+
+    noteController.makeUrlChangeShowNoteForCurrentPage();
+
+    assert.isEqual(
+      noteController.appElement().innerHTML,
+      "<div>Yo</div>",
+      "Url change shows note for current page"
+    );
+  })();
+
 })(this);
