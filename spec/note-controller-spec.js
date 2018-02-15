@@ -41,37 +41,29 @@
     );
   })();
 
-  (function testGetIdFromURL() {
+  (function testGetNoteIdFromURL() {
     assert.isEqual(
       noteController.getNoteIdFromURL("#notes/0"),
-      "0",
-      "getNoteIdFromURL() returns id of 0"
+      0,
+      "returns correct id for current url"
+    );
+  })();
+
+  (function testGetNote() {
+    assert.isEqual(
+      noteController.getNote(0),
+      mockNote,
+      "getNote gets a note by id"
     );
   })();
 
   (function testInsertNoteHTML() {
-    noteController.insertNoteHTML("0", mockNoteList)
+    noteController.insertNoteHTML(mockNote);
 
     assert.isEqual(
       noteController.appElement().innerHTML,
       "<div>Yo</div>",
-      "insertNoteHTML(0) inserts html for note with id of 0"
-    );
-  })();
-
-  (function testShowNoteForCurrentPage() {
-    var mockHTMLelement = {
-      innerHTML:""
-    };
-
-    var noteController = new NoteController(mockNoteListView, mockHTMLelement);
-
-    noteController.showNoteForCurrentPage();
-
-    assert.isEqual(
-      noteController.appElement().innerHTML,
-      "<div>Yo</div>",
-      "showNoteForCurrentPage() shows note for current page correctly"
+      "insertNoteHTML inserts HTML for a note"
     );
   })();
 

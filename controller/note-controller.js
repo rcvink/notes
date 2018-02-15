@@ -20,21 +20,22 @@
     this._appElement.innerHTML = this._noteListView.parse();
   };
 
-  NoteController.prototype.showNoteForCurrentPage = function () {
-    this._insertNoteHTML(this._getNoteFromURL());
+  NoteController.prototype.getNoteIdFromURL = function (locationHash = window.location.hash) {
+    return parseInt(locationHash.split('/')[1]);
   };
 
-  NoteController.prototype._insertNoteHTML = function (note) {
+  NoteController.prototype.getNote = function (id) {
+    return this._noteListView.noteList().getNote(id);
+  };
+
+  NoteController.prototype.insertNoteHTML = function (note) {
     noteView = new SingleNoteView(note);
     this._appElement.innerHTML = noteView.parse();
   };
 
-  NoteController.prototype._getNoteFromURL = function () {
-    return this._noteListView.noteList().getNote(this._getNoteIdFromURL());
-  };
-
-  NoteController.prototype._getNoteIdFromURL = function () {
-    return parseInt(window.location.hash.split('/')[1]);
+  NoteController.prototype.showNoteForCurrentPage = function () {
+    // Untested method
+    this.insertNoteHTML(this.getNote(this.getNoteIdFromURL()));
   };
 
   exports.NoteController = NoteController;
