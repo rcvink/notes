@@ -3,19 +3,32 @@
   console.log("NoteListView");
 
   var note1 = {
-    text: function() { return "Hi there!" }
+    text: function() { return "Hi there!" },
+    id: function() { return 0 }
   };
 
   var note2 = {
-    text: function() { return "Greetings!" }
+    text: function() { return "Greetings!" },
+    id: function() { return 1 }
   };
 
   var note3 = {
-    text: function() { return "This note is longer than 20 characters." }
+    text: function() { return "This note is longer than 20 characters." },
+    id: function() { return 0 }
+  };
+
+  var note4 = {
+    text: function() { return "This note is also longer than 20 characters." },
+    id: function() { return 1 }
   };
 
   var noteList;
   var noteListView;
+  var link0html = "<li><div><a href='http://localhost:8080#notes/0'>Hi there!</a></div></li>";
+  var link1html = "<li><div><a href='http://localhost:8080#notes/1'>Greetings!</a></div></li>";
+  var link2html = "<li><div><a href='http://localhost:8080#notes/0'>This note is longer </a></div></li>";
+  var link3html = "<li><div><a href='http://localhost:8080#notes/1'>This note is also lo</a></div></li>";
+
 
   (function testReturnEmptyNoteList () {
     noteList = {
