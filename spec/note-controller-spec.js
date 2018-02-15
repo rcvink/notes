@@ -5,7 +5,7 @@
   console.log("NoteController");
 
   var mockNoteListView = {
-    parse: function() { return "<ul><li><div>Favourite drink: seltzer</div></li></ul>"}
+    parse: function() { return "<ul><li><div><a href='http://localhost:8080#notes/0'>Favourite drink: sel</a></div></li></ul>" }
   };
 
   var mockHTMLelement = {
@@ -27,8 +27,16 @@
 
     assert.isEqual(
       noteController.appElement().innerHTML,
-      "<ul><li><div>Favourite drink: seltzer</div></li></ul>",
+      "<ul><li><div><a href='http://localhost:8080#notes/0'>Favourite drink: sel</a></div></li></ul>",
       "insertHTML() adds note list view"
+    );
+  })();
+
+  (function testGetId() {
+    assert.isEqual(
+      noteController.getNoteIdFromURL("#notes/0"),
+      "0",
+      "getNoteId() returns id of 0"
     );
   })();
 
