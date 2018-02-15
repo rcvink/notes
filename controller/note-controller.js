@@ -39,7 +39,7 @@
   };
 
   NoteController.prototype.makeUrlChangeShowNoteForCurrentPage = function () {
-    window.addEventListener("hashchange", this.showNoteForCurrentPage);
+    window.addEventListener("hashchange", function () { this.showNoteForCurrentPage() }.bind(this));
   };
 
   exports.NoteController = NoteController;
