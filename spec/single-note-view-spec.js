@@ -17,8 +17,9 @@
   })();
 
   (function testReturnNoteHTML () {
-    assert.isTrue(
-      singleNoteView.parse() === "<div>Favourite food: burrito</div>",
+    assert.isEqual(
+      singleNoteView.parse(),
+      "<div>Favourite food: burrito</div>",
       "parses note into HTML"
     );
   })();

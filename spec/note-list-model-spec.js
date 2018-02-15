@@ -5,8 +5,8 @@
   var noteList = new NoteList();
 
   (function testEmptyNotesArray () {
-    assert.isTrue(
-      noteList.notes().length === 0,
+    assert.isEmpty(
+      noteList.notes(),
       "notes array is initially empty"
     );
   })();
@@ -22,8 +22,9 @@
   })();
 
   (function testFirstNoteObjectHasId0 () {
-    assert.isTrue(
-      noteList.notes()[0].id() === 0,
+    assert.isEqual(
+      noteList.notes()[0].id(),
+      0,
       "gives first note object id of 0"
     );
   })();
@@ -31,8 +32,9 @@
   noteList.add("Hi there!");
 
   (function testSecondNoteObjectHasId1 () {
-    assert.isTrue(
-      noteList.notes()[1].id() === 1,
+    assert.isEqual(
+      noteList.notes()[1].id(),
+      1,
       "gives second note object id of 1"
     );
   })();

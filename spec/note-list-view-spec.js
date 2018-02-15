@@ -24,8 +24,9 @@
 
     noteListView = new NoteListView(noteList);
 
-    assert.isTrue(
-      noteListView.parse() === "<ul></ul>",
+    assert.isEqual(
+      noteListView.parse(),
+      "<ul></ul>",
       "list containing 0 notes is parsed into HTML"
     );
 
@@ -38,8 +39,9 @@
 
     noteListView = new NoteListView(noteList);
 
-    assert.isTrue(
-      noteListView.parse() === "<ul><li><div>Hi there!</div></li></ul>",
+    assert.isEqual(
+      noteListView.parse(),
+      `<ul>${link0html}</ul>`,
       "list containing 1 note is parsed into HTML"
     );
 
@@ -52,8 +54,9 @@
 
     noteListView = new NoteListView(noteList);
 
-    assert.isTrue(
-      noteListView.parse() === "<ul><li><div>Hi there!</div></li><li><div>Greetings!</div></li></ul>",
+    assert.isEqual(
+      noteListView.parse(),
+      `<ul>${link0html + link1html}</ul>`,
       "list containing 2 notes is parsed into HTML"
     );
 
@@ -62,12 +65,13 @@
   (function test20CharacterSingletonNoteLimit () {
     noteList = {
       notes: function() { return [note3] }
-    }
+    };
 
     noteListView = new NoteListView(noteList);
 
-    assert.isTrue(
-      noteListView.parse() === "<ul><li><div>This note is longer </div></li></ul>",
+    assert.isEqual(
+      noteListView.parse(),
+      `<ul>${link2html}</ul>`,
       "only first 20 characters of 1 note is parsed into HTML"
     );
 
@@ -75,13 +79,14 @@
 
   (function test20CharacterManyNoteLimit () {
     noteList = {
-      notes: function() { return [note3, note3] }
+      notes: function() { return [note3, note4] }
     }
 
     noteListView = new NoteListView(noteList);
 
-    assert.isTrue(
-      noteListView.parse() === "<ul><li><div>This note is longer </div></li><li><div>This note is longer </div></li></ul>",
+    assert.isEqual(
+      noteListView.parse(),
+      `<ul>${link2html + link3html}</ul>`,
       "only first 20 characters of 2 notes are parsed into HTML"
     );
 

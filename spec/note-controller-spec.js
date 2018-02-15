@@ -24,8 +24,10 @@
 
   (function testInsertHtml() {
     noteController.insertHTML();
-    assert.isTrue(
-      noteController.HTMLelement().innerHTML === "<ul><li><div>Favourite drink: seltzer</div></li></ul>",
+
+    assert.isEqual(
+      noteController.HTMLelement().innerHTML,
+      "<ul><li><div>Favourite drink: seltzer</div></li></ul>",
       "insertHTML() adds note list view"
     );
   })();
