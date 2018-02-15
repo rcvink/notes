@@ -26,8 +26,8 @@ Build a notes app as a frontend, single page web app.
 11. Spike to intercept a form submit event emitted by the create note form
 12. Spike to extract note text from a form submit event
 13. Use TDD to finish support for user note creation
-Refactor
-14. Extract a standalone test library
+14. Refactor
+15. Extract a standalone test library
 
 ## User Stories
 
