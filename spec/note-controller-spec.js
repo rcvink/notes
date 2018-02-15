@@ -4,7 +4,14 @@
 
   console.log("NoteController");
 
+  var mockNote;
+
+  var mockNoteList = {
+    getNote: function() { return mockNote }
+  };
+
   var mockNoteListView = {
+    noteList: function () { return mockNoteList },
     parse: function() { return "<ul><li><div><a href='http://localhost:8080#notes/0'>Favourite drink: sel</a></div></li></ul>" }
   };
 
@@ -32,11 +39,19 @@
     );
   })();
 
-  (function testGetId() {
+  (function testGetIdFromURL() {
     assert.isEqual(
       noteController.getNoteIdFromURL("#notes/0"),
       "0",
-      "getNoteId() returns id of 0"
+      "getNoteIdFromURL() returns id of 0"
+    );
+  })();
+
+  (function testGetNoteById() {
+    assert.isEqual(
+      noteController.getNote("0"),
+      mockNote,
+      "getNote() returns note with id of 0"
     );
   })();
 
