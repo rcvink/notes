@@ -4,15 +4,15 @@
 
   console.log("NoteController");
 
-  var noteListView = {
+  var mockNoteListView = {
     parse: function() { return "<ul><li><div>Favourite drink: seltzer</div></li></ul>"}
   };
 
-  var HTMLelement = {
+  var mockHTMLelement = {
     innerHTML:""
   };
 
-  var noteController = new NoteController(noteListView, HTMLelement);
+  var noteController = new NoteController(mockNoteListView, mockHTMLelement);
 
   (function testInstantiateNoteController () {
     assert.isA(
@@ -26,7 +26,7 @@
     noteController.insertHTML();
 
     assert.isEqual(
-      noteController.HTMLelement().innerHTML,
+      noteController.appElement().innerHTML,
       "<ul><li><div>Favourite drink: seltzer</div></li></ul>",
       "insertHTML() adds note list view"
     );
