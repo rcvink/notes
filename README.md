@@ -1,5 +1,12 @@
 # Notes
 
+## Getting started
+
+
+1. Clone this repo
+2. Run the server, in terminal (from root of project):
+`node node_modules/http-server/bin/http-server`
+
 ## Instructions
 
 Build a notes app as a frontend, single page web app.
