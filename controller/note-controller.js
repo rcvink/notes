@@ -24,8 +24,14 @@
     return hash.split('/')[1];
   };
 
-  NoteController.prototype.getNote = function (id) {
-    return this._noteListView.noteList().getNote(id);
+  // NoteController.prototype.getNote = function (id) {
+  //   return this._noteListView.noteList().getNote(id);
+  // };
+
+  NoteController.prototype.showNote = function (id, noteList = this._noteListView.noteList()) {
+    note = noteList.getNote(this.getNoteIdFromURL());
+    noteView = new SingleNoteView(note);
+    this._appElement.innerHTML = noteView.parse();
   };
 
   exports.NoteController = NoteController;

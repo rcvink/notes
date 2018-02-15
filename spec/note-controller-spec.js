@@ -4,7 +4,9 @@
 
   console.log("NoteController");
 
-  var mockNote;
+  var mockNote = {
+    text: function() { return "Yo" }
+  };
 
   var mockNoteList = {
     getNote: function() { return mockNote }
@@ -47,11 +49,21 @@
     );
   })();
 
-  (function testGetNoteById() {
+  // (function testGetNoteById() {
+  //   assert.isEqual(
+  //     noteController.getNote("0"),
+  //     mockNote,
+  //     "getNote() returns note with id of 0"
+  //   );
+  // })();
+
+  (function testShowNote() {
+    noteController.showNote("0", mockNoteList)
+
     assert.isEqual(
-      noteController.getNote("0"),
-      mockNote,
-      "getNote() returns note with id of 0"
+      noteController.appElement().innerHTML,
+      "<div>Yo</div>",
+      "showNote() returns html for note with id of 0"
     );
   })();
 
