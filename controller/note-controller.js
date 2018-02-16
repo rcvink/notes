@@ -50,9 +50,7 @@
 
   NoteController.prototype.listenForSubmit = function () {
     // Untested method
-    window.addEventListener("submit", function (event) {
-      this.actionOnSubmit(event);
-    }.bind(this));
+    window.addEventListener("submit", function (event) { this.actionOnSubmit(event); }.bind(this));
   };
 
   NoteController.prototype.addNote = function (inputText) {
