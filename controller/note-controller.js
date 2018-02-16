@@ -51,9 +51,21 @@
   NoteController.prototype.listenForSubmit = function () {
     // Untested method
     window.addEventListener("submit", function (event) {
-      console.log(event.path["0"]["0"].value);
-      event.preventDefault();
-    });
+      // event.preventDefault();
+      this.actionOnSubmit(event);
+    }.bind(this));
+  };
+
+  NoteController.prototype.addNote = function (inputText) {
+    // Untested method
+    this._noteListView.noteList().add(inputText);
+  };
+
+  NoteController.prototype.actionOnSubmit = function (event) {
+    // Untested method
+    event.preventDefault();
+    this.addNote(event.path["0"]["0"].value);
+    this.insertHTML();
   };
 
   exports.NoteController = NoteController;
