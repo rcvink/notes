@@ -49,9 +49,10 @@
   };
 
   NoteController.prototype.listenForSubmit = function () {
+    // Untested method
     window.addEventListener("submit", function (event) {
-      console.log(event);
-      event.preventDefault(); 
+      console.log(event.path["0"]["0"].value);
+      event.preventDefault();
     });
   };
 
