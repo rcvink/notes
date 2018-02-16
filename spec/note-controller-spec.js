@@ -11,7 +11,8 @@
       };
 
       var mockNoteList = {
-        getNote: function() { return mockNote }
+        getNote: function() { return mockNote },
+        notes: function() { return [] }
       };
 
       var mockNoteListView = {
@@ -50,8 +51,13 @@
 
       noteController.insertNoteHTML(mockNote);
 
-      test.unit("insertNoteHTML inserts HTML for a note", function() {
+      test.unit("insertNoteHTML() inserts HTML for a note", function() {
         assert.isEqual(noteController.noteElement().innerHTML, "<div>Yo</div>");
+      });
+
+      test.unit("addNote() adds a new note to NoteListModel with text supplied", function() {
+        noteController.addNote("Hello RolyBoi")
+        assert.isEqual(noteController.noteListView().noteList()[1].text(), "Hello RolyBoi")
       });
 
     });
