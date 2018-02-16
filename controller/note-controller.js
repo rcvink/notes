@@ -1,7 +1,8 @@
 (function(exports) {
-  function NoteController(noteListView, appElement = document.getElementById('app')) {
+  function NoteController(noteListView, appElement = document.getElementById('app'), noteElement = document.getElementById('note')) {
     this._noteListView = noteListView;
     this._appElement = appElement;
+    this._noteElement = noteElement;
   };
 
   NoteController.prototype.noteListView = function () {
@@ -14,6 +15,10 @@
 
   NoteController.prototype.appElement = function () {
     return this._appElement;
+  };
+
+  NoteController.prototype.noteElement = function () {
+    return this._noteElement;
   };
 
   NoteController.prototype.insertHTML = function () {
@@ -30,7 +35,7 @@
 
   NoteController.prototype.insertNoteHTML = function (note) {
     noteView = new SingleNoteView(note);
-    this._appElement.innerHTML = noteView.parse();
+    this._noteElement.innerHTML = noteView.parse();
   };
 
   NoteController.prototype.showNoteForCurrentPage = function () {

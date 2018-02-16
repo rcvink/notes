@@ -19,11 +19,15 @@
         parse: function() { return "<ul><li><div><a href='http://localhost:8080#notes/0'>Favourite drink: sel</a></div></li></ul>" }
       };
 
-      var mockHTMLelement = {
+      var mockAppElement = {
         innerHTML:""
       };
 
-      var noteController = new NoteController(mockNoteListView, mockHTMLelement);
+      var mockNoteElement = {
+        innerHTML:""
+      };
+
+      var noteController = new NoteController(mockNoteListView, mockAppElement, mockNoteElement);
 
       test.unit("can be instantiated", function() {
         assert.isA(noteController, NoteController);
@@ -47,7 +51,7 @@
       noteController.insertNoteHTML(mockNote);
 
       test.unit("insertNoteHTML inserts HTML for a note", function() {
-        assert.isEqual(noteController.appElement().innerHTML, "<div>Yo</div>");
+        assert.isEqual(noteController.noteElement().innerHTML, "<div>Yo</div>");
       });
 
     });
