@@ -25,14 +25,12 @@
 
     <script>
 
-    // renderBody = function() {
-      var noteList = new NoteList();
-      var noteListView = new NoteListView(noteList);
-      var noteController = new NoteController(noteListView);
-      noteController.insertHTML();
-      noteController.makeUrlChangeShowNoteForCurrentPage();
-      noteController.listenForSubmit();
-    // }
+    var noteList = new NoteList();
+    var noteListView = new NoteListView(noteList);
+    var noteController = new NoteController(noteListView);
+    noteController.insertHTML();
+    noteController.makeUrlChangeShowNoteForCurrentPage();
+    noteController.listenForSubmit();
 
     </script>
 

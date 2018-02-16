@@ -10,14 +10,8 @@
         text: function() { return "Yo" }
       };
 
-      // var mockNote2 = {
-      //   text: function() { return "Hello RolyBoi" }
-      // }
-
       var mockNoteList = {
-        getNote: function() { return mockNote }//,
-        // notes: function() { return mockNote2 }
-        // add: function () { return  }
+        getNote: function() { return mockNote }
       };
 
       var mockNoteListView = {
@@ -59,11 +53,6 @@
       test.unit("insertNoteHTML() inserts HTML for a note", function() {
         assert.isEqual(noteController.noteElement().innerHTML, "<div>Yo</div>");
       });
-
-      // test.unit("addNote() adds a new note to NoteListModel with text supplied", function() {
-      //   noteController.addNote("Hello RolyBoi")
-      //   assert.isEqual(noteController.noteListView().noteList()[1].text(), "Hello RolyBoi")
-      // });
 
     });
 

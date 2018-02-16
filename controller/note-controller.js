@@ -51,7 +51,6 @@
   NoteController.prototype.listenForSubmit = function () {
     // Untested method
     window.addEventListener("submit", function (event) {
-      // event.preventDefault();
       this.actionOnSubmit(event);
     }.bind(this));
   };
