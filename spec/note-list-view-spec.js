@@ -6,10 +6,10 @@
 
     drive("NoteListView", function() {
 
-      var link0html = "<li><div><a href='http://localhost:8080#notes/0'>Hi there!</a></div></li>";
-      var link1html = "<li><div><a href='http://localhost:8080#notes/1'>Greetings!</a></div></li>";
-      var link2html = "<li><div><a href='http://localhost:8080#notes/0'>This note is longer </a></div></li>";
-      var link3html = "<li><div><a href='http://localhost:8080#notes/1'>This note is also lo</a></div></li>";
+      // var link0html = "<li><div><a href='#notes/0'>Hi there!</a></div></li>";
+      // var link1html = "<li><div><a href='#notes/1'>Greetings!</a></div></li>";
+      // var link2html = "<li><div><a href='#notes/0'>This note is longer </a></div></li>";
+      // var link3html = "<li><div><a href='#notes/1'>This note is also lo</a></div></li>";
 
       var note1 = {
         text: function() { return "Hi there!" },
@@ -52,7 +52,7 @@
       noteListView = new NoteListView(noteList);
 
       test.unit("parse() parses 1 note into HTML", function() {
-        assert.isEqual(noteListView.parse(), `<ul>${link0html}</ul>`);
+        assert.isEqual(noteListView.parse(), "<ul><li><div><a href='#notes/0'>Hi there!</a></div></li></ul>");
       });
 
       noteList = {
@@ -62,7 +62,7 @@
       noteListView = new NoteListView(noteList);
 
       test.unit("parse() parses 2 notes into HTML", function() {
-        assert.isEqual(noteListView.parse(), `<ul>${link0html + link1html}</ul>`);
+        assert.isEqual(noteListView.parse(), "<ul><li><div><a href='#notes/0'>Hi there!</a></div></li><li><div><a href='#notes/1'>Greetings!</a></div></li></ul>");
       });
 
       noteList = {
@@ -72,7 +72,7 @@
       noteListView = new NoteListView(noteList);
 
       test.unit("parse() only parses first 20 characters of 1 note into HTML", function() {
-        assert.isEqual(noteListView.parse(), `<ul>${link2html}</ul>`);
+        assert.isEqual(noteListView.parse(), "<ul><li><div><a href='#notes/0'>This note is longer </a></div></li></ul>");
       });
 
       noteList = {
@@ -82,7 +82,7 @@
       noteListView = new NoteListView(noteList);
 
       test.unit("parse() only parses first 20 characters of 2 notes into HTML", function() {
-        assert.isEqual(noteListView.parse(), `<ul>${link2html + link3html}</ul>`);
+        assert.isEqual(noteListView.parse(), "<ul><li><div><a href='#notes/0'>This note is longer </a></div></li><li><div><a href='#notes/1'>This note is also lo</a></div></li></ul>");
       });
 
     })
