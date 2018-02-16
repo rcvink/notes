@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <title>Notes</title>
   </head>
-  <body>
+  <body onload="renderBody()">
     <h1>Notes</h1>
     <textarea rows="15" cols="80" form="text"></textarea>
     <form id="text" method=POST action="#notes/">
     <input type="submit"></form>
     <div id="app"></div>
+    <div id="note"></div>
 
     <!-- models -->
     <script src="model/note-model.js"></script>
@@ -23,6 +24,8 @@
     <script src="controller/note-controller.js"></script>
 
     <script>
+
+    renderBody = function() {
       var noteList = new NoteList();
       noteList.add("Cat names: Dinky, Tickles, Bubbs");
       noteList.add("Favourite foods: lasagne, burritos, carbonara, poutine");
@@ -31,6 +34,8 @@
       var noteController = new NoteController(noteListView);
       noteController.insertHTML();
       noteController.makeUrlChangeShowNoteForCurrentPage();
+    }
+
     </script>
 
   </body>
