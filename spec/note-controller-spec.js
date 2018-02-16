@@ -2,85 +2,56 @@
 
 (function(exports) {
 
-  console.log("NoteController");
+  (function driveNoteController() {
 
-  var mockNote = {
-    text: function() { return "Yo" }
-  };
+    drive("NoteController", function() {
 
-  var mockNoteList = {
-    getNote: function() { return mockNote }
-  };
+      var mockNote = {
+        text: function() { return "Yo" }
+      };
 
-  var mockNoteListView = {
-    noteList: function () { return mockNoteList },
-    parse: function() { return "<ul><li><div><a href='http://localhost:8080#notes/0'>Favourite drink: sel</a></div></li></ul>" }
-  };
+      var mockNoteList = {
+        getNote: function() { return mockNote }
+      };
 
-  var mockHTMLelement = {
-    innerHTML:""
-  };
+      var mockNoteListView = {
+        noteList: function () { return mockNoteList },
+        parse: function() { return "<ul><li><div><a href='http://localhost:8080#notes/0'>Favourite drink: sel</a></div></li></ul>" }
+      };
 
-  var noteController = new NoteController(mockNoteListView, mockHTMLelement);
+      var mockHTMLelement = {
+        innerHTML:""
+      };
 
-  (function testInstantiateNoteController () {
-    assert.isA(
-      noteController,
-      NoteController,
-      "can be instantiated"
-    );
-  })();
+      var noteController = new NoteController(mockNoteListView, mockHTMLelement);
 
-  (function testInsertHtml() {
-    noteController.insertHTML();
+      test.unit("can be instantiated", function() {
+        assert.isA(noteController, NoteController);
+      });
 
-    assert.isEqual(
-      noteController.appElement().innerHTML,
-      "<ul><li><div><a href='http://localhost:8080#notes/0'>Favourite drink: sel</a></div></li></ul>",
-      "insertHTML() adds note list view"
-    );
-  })();
+      noteController.insertHTML();
 
-  (function testGetNoteIdFromURL() {
-    assert.isEqual(
-      noteController.getNoteIdFromURL("#notes/0"),
-      0,
-      "returns correct id for current url"
-    );
-  })();
+      test.unit("insertHTML() inserts note list view", function() {
+        assert.isEqual(noteController.appElement().innerHTML,
+         "<ul><li><div><a href='http://localhost:8080#notes/0'>Favourite drink: sel</a></div></li></ul>");
+      });
 
-  (function testGetNote() {
-    assert.isEqual(
-      noteController.getNote(0),
-      mockNote,
-      "getNote gets a note by id"
-    );
-  })();
+      test.unit("getNoteIdFromURL() returns correct id for current url", function() {
+        assert.is0(noteController.getNoteIdFromURL("#notes/0"));
+      });
 
-  (function testInsertNoteHTML() {
-    noteController.insertNoteHTML(mockNote);
+      test.unit("getNote() gets a note by id", function() {
+        assert.isEqual(noteController.getNote(0), mockNote);
+      });
 
-    assert.isEqual(
-      noteController.appElement().innerHTML,
-      "<div>Yo</div>",
-      "insertNoteHTML inserts HTML for a note"
-    );
-  })();
+      noteController.insertNoteHTML(mockNote);
 
-  (function testMakeUrlChangeShowNoteForCurrentPage() {
-    var mockHTMLelement = {
-      innerHTML:""
-    };
+      test.unit("insertNoteHTML inserts HTML for a note", function() {
+        assert.isEqual(noteController.appElement().innerHTML, "<div>Yo</div>");
+      });
 
-    var noteController = new NoteController(mockNoteListView, mockHTMLelement);
+    });
 
-    noteController.makeUrlChangeShowNoteForCurrentPage();
-
-    assert.isEqual(
-      noteController.appElement().innerHTML,
-      "<div>Yo</div>",
-      "Url change shows note for current page"
-    );
   })();
 
 })(this);

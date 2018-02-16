@@ -1,58 +1,43 @@
+'use strict';
+
 (function(exports) {
 
-  console.log("NoteList");
+  (function driveNoteList() {
 
-  var noteList = new NoteList();
+    drive("NoteList", function() {
 
-  (function testEmptyNotesArray () {
-    assert.isEmpty(
-      noteList.notes(),
-      "notes array is initially empty"
-    );
-  })();
+      var noteList = new NoteList();
 
-  noteList.add("Hello!");
+      test.unit("notes array is initially empty", function() {
+        assert.isEmpty(noteList.notes());
+      });
 
-  (function testAddNoteObject () {
-    assert.isA(
-      noteList.notes()[0],
-      Note,
-      "note object is stored in notes array"
-    );
-  })();
+      noteList.add("Hello!");
 
-  (function testFirstNoteObjectHasId0 () {
-    assert.isEqual(
-      noteList.notes()[0].id(),
-      0,
-      "gives first note object id of 0"
-    );
-  })();
+      test.unit("add() stores note object in notes array", function() {
+        assert.isA(noteList.notes()[0], Note);
+      });
 
-  noteList.add("Hi there!");
+      test.unit("add() assigns first note object id of 0", function() {
+        assert.is0(noteList.notes()[0].id());
+      });
 
-  (function testSecondNoteObjectHasId1 () {
-    assert.isEqual(
-      noteList.notes()[1].id(),
-      1,
-      "gives second note object id of 1"
-    );
-  })();
+      noteList.add("Hi there!");
 
-  (function testGetNoteById0 () {
-    assert.isEqual(
-      noteList.getNote(0).text(),
-      "Hello!",
-      "returns note with id 0"
-    );
-  })();
+      test.unit("add() assigns second note object id of 1", function() {
+        assert.isEqual(noteList.notes()[1].id(), 1)
+      });
 
-  (function testGetNoteById1 () {
-    assert.isEqual(
-      noteList.getNote(1).text(),
-      "Hi there!",
-      "returns note with id 1"
-    );
+      test.unit("getNote() returns note with id 0", function() {
+        assert.isEqual(noteList.getNote(0).text(), "Hello!")
+      });
+
+      test.unit("getNote() returns note with id 1", function() {
+        assert.isEqual(noteList.getNote(1).text(), "Hi there!")
+      });
+
+    });
+
   })();
 
 })(this);

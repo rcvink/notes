@@ -1,27 +1,27 @@
+'use strict';
+
 (function(exports) {
 
-  console.log("SingleNoteView");
+  (function driveSingleNoteView() {
 
-  var noteMock = {
-    text: function() {return "Favourite food: burrito"}
-  };
+    drive("SingleNoteView", function() {
 
-  var singleNoteView = new SingleNoteView(noteMock);
+      var noteMock = {
+        text: function() { return "Favourite food: burrito" }
+      };
 
-  (function testInstantiateSingleNoteView () {
-    assert.isA(
-      singleNoteView,
-      SingleNoteView,
-      "can be instantiated"
-    );
-  })();
+      var singleNoteView = new SingleNoteView(noteMock);
 
-  (function testReturnNoteHTML () {
-    assert.isEqual(
-      singleNoteView.parse(),
-      "<div>Favourite food: burrito</div>",
-      "parses note into HTML"
-    );
+      test.unit("can be instantiated", function() {
+        assert.isA(singleNoteView, SingleNoteView);
+      });
+
+      test.unit("parse() parses note text into HTML", function() {
+        assert.isEqual(singleNoteView.parse(), "<div>Favourite food: burrito</div>");
+      });
+
+    });
+
   })();
 
 })(this);

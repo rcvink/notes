@@ -1,23 +1,23 @@
+'use strict';
+
 (function(exports) {
 
-  console.log("Note");
+  (function driveNote() {
 
-  var note = new Note(0, "Javascript is my favourite language");
+    drive("Note", function() {
 
-  (function testNoteTextIsStored() {
-    assert.isEqual(
-      note.text(),
-      "Javascript is my favourite language",
-      "text is stored"
-    );
-  })();
+      var note = new Note(0, "Javascript is my favourite language");
 
-  (function testNoteHasId() {
-    assert.isEqual(
-      note.id(),
-      0,
-      "has an id"
-    );
+      test.unit("text is stored", function () {
+        assert.isEqual(note.text(), "Javascript is my favourite language");
+      });
+
+      test.unit("has an id", function () {
+        assert.is0(note.id());
+      });
+
+    });
+
   })();
 
 })(this);
