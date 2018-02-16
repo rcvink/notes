@@ -24,7 +24,9 @@
 
     <script>
       var noteList = new NoteList();
-      noteList.add("Favourite drink: seltzer");
+      noteList.add("Cat names: Dinky, Tickles, Bubbs");
+      noteList.add("Favourite foods: lasagne, burritos, carbonara")
+      noteList.add("Favourite drinks: frijj, peppermint tea, lemonade")
       var noteListView = new NoteListView(noteList);
       var noteController = new NoteController(noteListView);
       noteController.insertHTML();
