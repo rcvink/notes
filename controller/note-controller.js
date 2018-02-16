@@ -44,7 +44,15 @@
   };
 
   NoteController.prototype.makeUrlChangeShowNoteForCurrentPage = function () {
+    // Untested method
     window.addEventListener("hashchange", function () { this.showNoteForCurrentPage() }.bind(this));
+  };
+
+  NoteController.prototype.listenForSubmit = function () {
+    window.addEventListener("submit", function (event) {
+      console.log(event);
+      event.preventDefault(); 
+    });
   };
 
   exports.NoteController = NoteController;
