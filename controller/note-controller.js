@@ -1,3 +1,5 @@
+'use strict';
+
 (function(exports) {
   function NoteController(noteListView) {
     this._noteListView = noteListView;
@@ -16,4 +18,5 @@
   };
 
   exports.NoteController = NoteController;
+  
 })(this);

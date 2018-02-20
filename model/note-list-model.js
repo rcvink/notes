@@ -1,8 +1,9 @@
+'use strict';
+
 (function(exports) {
 
-  function NoteList(noteConstructor = Note) {
+  function NoteList() {
     this._notes = [];
-    this._noteConstructor = noteConstructor;
   };
 
   NoteList.prototype.notes = function () {
@@ -10,15 +11,14 @@
   };
 
   NoteList.prototype.add = function (string) {
-    note = new this._noteConstructor(this._nextNoteId(), string);
+    var note = new Note(this._nextNoteId(), string);
     this._notes.push(note);
   };
 
   NoteList.prototype.getNote = function (id) {
-    var note = this._notes.find(function(note) {
+    return this._notes.find(function(note) {
       return note.id() === id;
     });
-    return note;
   };
 
   NoteList.prototype._nextNoteId = function () {
@@ -26,4 +26,5 @@
   };
 
   exports.NoteList = NoteList;
-})(this)
+
+})(this);

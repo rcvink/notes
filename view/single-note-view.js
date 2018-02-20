@@ -1,10 +1,13 @@
+'use strict';
+
 (function(exports) {
+
   function SingleNoteView(note) {
-    this._note = note
+    this._note = note;
   };
 
   SingleNoteView.prototype.note = function () {
-    return this._note
+    return this._note;
   };
 
   SingleNoteView.prototype.parse = function () {
@@ -12,4 +15,5 @@
   };
 
   exports.SingleNoteView = SingleNoteView;
+  
 })(this);

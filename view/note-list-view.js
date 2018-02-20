@@ -1,4 +1,7 @@
+'use strict';
+
 (function(exports) {
+
   const CHARACTER_LIMIT = 20;
 
   function NoteListView(noteList) {
@@ -10,14 +13,14 @@
   };
 
   NoteListView.prototype.parse = function() {
-    string = "<ul>";
+    var HTMLString = "<ul>";
 
     this._noteList.notes().forEach(function(note) {
-      string += `<li><div><a href='#notes/${note.id()}'>${note.text().slice(0, CHARACTER_LIMIT)}</a></div></li>`;
+      HTMLString += `<li><div><a href='#notes/${note.id()}'>${note.text().slice(0, CHARACTER_LIMIT)}</a></div></li>`;
     });
 
-    string += "</ul>";
-    return string;
+    HTMLString += "</ul>";
+    return HTMLString;
   };
 
   exports.NoteListView = NoteListView;
