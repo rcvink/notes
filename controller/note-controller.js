@@ -7,10 +7,6 @@
     return this._noteListView;
   };
 
-  NoteController.prototype.noteListModel = function () {
-    return this._noteListView.noteList();
-  };
-
   NoteController.prototype.getNote = function (id) {
     return this._noteListView.noteList().getNote(id);
   };

@@ -12,22 +12,6 @@
 
   // All methods untested
 
-  EventController.prototype.noteController = function () {
-    return this._noteController;
-  };
-
-  EventController.prototype.injector = function () {
-    return this._injector;
-  };
-
-  EventController.prototype.scope = function () {
-    return this._scope;
-  };
-
-  EventController.prototype.actionOnLoad = function () {
-    this._injector.insertHTML(this._appElement, this._noteController.noteListView());
-  };
-
   EventController.prototype.listenForHashChange = function () {
     this._scope.addEventListener("hashchange", function () {
       this.actionOnHashChange();
