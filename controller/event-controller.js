@@ -33,8 +33,6 @@
     this._injector.insertHTML(this._appElement, this._noteController.noteListView());
   };
 
-  // private
-
   EventController.prototype._getNoteId = function () {
     return parseInt(this._scope.location.hash.split('/')[1]);
   };

@@ -6,7 +6,6 @@
   };
 
   Injector.prototype.insertHTML = function (element, view) {
-    // Untested method
     element.innerHTML = view.parse()
   };
 
