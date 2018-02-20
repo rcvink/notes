@@ -6,11 +6,6 @@
 
     drive("NoteListView", function() {
 
-      // var link0html = "<li><div><a href='#notes/0'>Hi there!</a></div></li>";
-      // var link1html = "<li><div><a href='#notes/1'>Greetings!</a></div></li>";
-      // var link2html = "<li><div><a href='#notes/0'>This note is longer </a></div></li>";
-      // var link3html = "<li><div><a href='#notes/1'>This note is also lo</a></div></li>";
-
       var note1 = {
         text: function() { return "Hi there!" },
         id: function() { return 0 }

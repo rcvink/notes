@@ -8,7 +8,7 @@
 
       var note = new Note(0, "Javascript is my favourite language");
 
-      test.unit("text is stored", function () {
+      test.unit("has text", function () {
         assert.isEqual(note.text(), "Javascript is my favourite language");
       });
 

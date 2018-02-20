@@ -11,9 +11,7 @@
     return this._noteListView.noteList().getNote(id);
   };
 
-
   NoteController.prototype.addNote = function (inputText) {
-    // Untested method
     this._noteListView.noteList().add(inputText);
   };
 

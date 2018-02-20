@@ -10,8 +10,6 @@
     this._noteElement = noteElement;
   };
 
-  // All methods untested
-
   EventController.prototype.listenForHashChange = function () {
     this._scope.addEventListener("hashchange", function () {
       this.actionOnHashChange();
