@@ -11,9 +11,11 @@ A custom test framework was written to drive development.
 ## Getting started
 
 1. Clone this repo
-2. Host index.html locally
+2. Host index.html locally (e.g. using http-server node package)
 3. ???
 4. Profit
+
+The app is also available online [here](https://rcvink.github.io/notes/).
 
 ## User Stories
 
@@ -47,7 +49,6 @@ The custom testing framework is similar to Jasmine and RSpec. It provides:
 ## Next Steps
 
 - Styling
-- Separate concerns
 - Improve test coverage
 - Improve mocking/isolation in tests
 - Add before hooks to test framework
