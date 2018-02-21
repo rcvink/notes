@@ -1,5 +1,4 @@
-var drive = function(blah, tests) {
-  console.log(blah);
+var drive = function(objectName, tests) {
+  print.drive(objectName);
   tests();
-  console.log("");
 };
