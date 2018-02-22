@@ -35,7 +35,7 @@
       var noteController = new NoteController(noteListView);
       var injector = new Injector();
       var hashChanged = new HashChanged(injector);
-      var formSubmitted = new FormSubmitted(injector);
+      var formSubmitted = new FormSubmitted(injector, noteController);
       var eventController = new EventController(noteController, hashChanged, formSubmitted);
 
       eventController.listenForHashChange();
