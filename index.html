@@ -24,6 +24,8 @@
     <script src="controller/note-controller.js"></script>
     <script src="controller/event-controller.js"></script>
     <script src="controller/injector.js"></script>
+    <script src="controller/hash-changed.js"></script>
+    <script src="controller/form-submitted.js"></script>
 
     <script>
 
@@ -32,7 +34,9 @@
       var noteListView = new NoteListView(noteList);
       var noteController = new NoteController(noteListView);
       var injector = new Injector();
-      var eventController = new EventController(noteController, injector);
+      var hashChanged = new HashChanged(injector);
+      var formSubmitted = new FormSubmitted(injector);
+      var eventController = new EventController(noteController, hashChanged, formSubmitted);
 
       eventController.listenForHashChange();
       eventController.listenForSubmit();
