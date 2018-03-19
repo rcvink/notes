@@ -6,9 +6,9 @@
     this._scope = scope;
   };
 
-  EventController.prototype.registerListener = function (eventString, handler) {
+  EventController.prototype.register = function (eventString, listener) {
     this._scope.addEventListener(eventString, function (event) {
-      handler.action(event);
+      listener.action(event);
     });
   };
 

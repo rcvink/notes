@@ -3,28 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>Spec</title>
-    <link href="test/public/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="test-framework/public/stylesheet.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div id="spec"></div>
 
+    <!-- test framework -->
+    <script src="test-framework/assert.js"></script>
+    <script src="test-framework/drive.js"></script>
+    <script src="test-framework/print.js"></script>
+    <script src="test-framework/test.js"></script>
+
     <!-- models -->
-    <script src="model/note-model.js"></script>
-    <script src="model/note-list-model.js"></script>
+    <script src="models/note-model.js"></script>
+    <script src="models/note-list-model.js"></script>
 
     <!-- views -->
-    <script src="view/note-list-view.js"></script>
-    <script src="view/single-note-view.js"></script>
+    <script src="views/note-list-view.js"></script>
+    <script src="views/single-note-view.js"></script>
 
     <!-- controllers -->
-    <script src="controller/note-controller.js"></script>
-    <script src="controller/injector.js"></script>
+    <script src="controllers/note-controller.js"></script>
+    <script src="controllers/event-controller.js"></script>
 
-    <!-- test framework -->
-    <script src="test/assert.js"></script>
-    <script src="test/test.js"></script>
-    <script src="test/print.js"></script>
-    <script src="test/drive.js"></script>
+    <!-- listeners -->
+    <script src="listeners/hash-changed.js"></script>
+    <script src="listeners/form-submitted.js"></script>
+
+    <!-- services -->
+    <script src="services/injector.js"></script>
 
     <!-- specs -->
     <script src="spec/note-model-spec.js"></script>

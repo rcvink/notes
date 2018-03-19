@@ -13,19 +13,23 @@
     <div id="note"></div>
 
     <!-- models -->
-    <script src="model/note-model.js"></script>
-    <script src="model/note-list-model.js"></script>
+    <script src="models/note-model.js"></script>
+    <script src="models/note-list-model.js"></script>
 
     <!-- views -->
-    <script src="view/note-list-view.js"></script>
-    <script src="view/single-note-view.js"></script>
+    <script src="views/note-list-view.js"></script>
+    <script src="views/single-note-view.js"></script>
 
     <!-- controllers -->
-    <script src="controller/note-controller.js"></script>
-    <script src="controller/event-controller.js"></script>
-    <script src="controller/injector.js"></script>
-    <script src="controller/hash-changed.js"></script>
-    <script src="controller/form-submitted.js"></script>
+    <script src="controllers/note-controller.js"></script>
+    <script src="controllers/event-controller.js"></script>
+
+    <!-- listeners -->
+    <script src="listeners/hash-changed.js"></script>
+    <script src="listeners/form-submitted.js"></script>
+
+    <!-- services -->
+    <script src="services/injector.js"></script>
 
     <script>
 
@@ -37,8 +41,8 @@
       var hashChanged = new HashChanged(injector, noteController);
       var formSubmitted = new FormSubmitted(injector, noteController);
       var eventController = new EventController();
-      eventController.registerListener("submit", formSubmitted);
-      eventController.registerListener("hashchange", hashChanged);
+      eventController.register("submit", formSubmitted);
+      eventController.register("hashchange", hashChanged);
     };
 
     </script>
