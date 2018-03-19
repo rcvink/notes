@@ -6,7 +6,7 @@
 
   function NoteListView(noteList) {
     this._noteList = noteList;
-  };
+  }
 
   NoteListView.prototype.noteList = function () {
     return this._noteList;

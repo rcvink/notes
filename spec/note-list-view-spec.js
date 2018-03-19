@@ -32,7 +32,7 @@
 
       var noteListView = new NoteListView(noteList);
 
-      test.unit("is initialised with a note list model", function() {
+      test.unit("has a note list model", function() {
         assert.isEqual(noteListView.noteList(), noteList);
       });
 
@@ -80,7 +80,7 @@
         assert.isEqual(noteListView.parse(), "<ul><li><div><a href='#notes/0'>This note is longer </a></div></li><li><div><a href='#notes/1'>This note is also lo</a></div></li></ul>");
       });
 
-    })
+    });
 
   })();
 
