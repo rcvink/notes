@@ -12,8 +12,8 @@ A custom test framework was written to drive development.
 
 1. Clone this repo
 2. Host index.html locally (e.g. using http-server node package)
-3. ???
-4. Profit
+3. Write some notes!
+4. `xdg-open spec.html` (Linux) or `open spec.html` to run the tests.
 
 The app is also available online [here](https://rcvink.github.io/notes/).
 
@@ -43,8 +43,9 @@ JavaScript prototype and module patterns were used to define the models, views a
 
 The custom testing framework is similar to Jasmine and RSpec. It provides:
 - Assertions, e.g. isEqual, isEmpty;
-- Drive, to drive the design of a model; and
-- Test, to provide unit and feature tests.
+- Drive, to drive the design of a model;
+- Test, to provide unit and feature tests; and
+- Print, to handle displaying results of tests.
 
 ## Next Steps
 
