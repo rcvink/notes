@@ -11,7 +11,7 @@ A custom test framework was written to drive development.
 ## Getting started
 
 1. Clone this repo
-2. Host index.html locally (e.g. using http-server node package)
+2. Host locally with `python3 -m http.server 8000 --bind 127.0.0.1`, then open `http://127.0.0.1:8000`.
 3. Write some notes!
 4. `xdg-open spec.html` (Linux) or `open spec.html` to run the tests.
 
@@ -54,3 +54,5 @@ The custom testing framework is similar to Jasmine and RSpec. It provides:
 - Improve mocking/isolation in tests
 - Add before hooks to test framework
 - Extract test framework
+
+Run the rendering security tests with `node --test test/*.test.cjs` (Node 22 or later). The obsolete, unused http-server lockfile has been removed; the browser app has no external packages.
