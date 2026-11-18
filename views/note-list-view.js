@@ -2,6 +2,12 @@
 
 (function(exports) {
 
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, function(character) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character];
+    });
+  }
+
   const CHARACTER_LIMIT = 20;
 
   function NoteListView(noteList) {
@@ -16,7 +22,7 @@
     var HTMLString = "<ul>";
 
     this._noteList.notes().forEach(function(note) {
-      HTMLString += `<li><div><a href='#notes/${note.id()}'>${note.text().slice(0, CHARACTER_LIMIT)}</a></div></li>`;
+      HTMLString += `<li><div><a href='#notes/${escapeHtml(encodeURIComponent(note.id()))}'>${escapeHtml(note.text().slice(0, CHARACTER_LIMIT))}</a></div></li>`;
     });
 
     HTMLString += "</ul>";
